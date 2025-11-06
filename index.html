@@ -40,37 +40,47 @@
 
   <script>
     function toggleBlock(color, button, gen_num) {
-    // Remove the button that was clicked
-    button.remove();
-
+      // Set-up section and div names.
       let prefix = 'gen';
       let gen_int = gen_num.toString();
       let suffix = '_teams_section';
+      let section_name = prefix + gen_int + suffix;
 
-      const container = document.getElementById(prefix + gen_int + suffix);
+      let div_name = section_name + "_" + button.innerText;
 
-      // Create a new block.
-      const block = document.createElement('div');
-      block.style.marginRight = '20px';
-      block.classList.add('row');
+      const section = document.getElementById(section_name);
+      const divExists = section.querySelector("." + div_name);
 
-      const square = document.createElement('div');
-      square.classList.add('square');
-      block.appendChild(square);
-      square.style.backgroundColor = color;
+      if (!divExists) {
+        // Create a new block.
+        const block = document.createElement('div');
+        block.style.marginRight = '20px';
+        block.classList.add('row');
 
-      const bar = document.createElement('div');
-      bar.classList.add('bar');
-      block.appendChild(bar);    
-
-      for (let i = 0; i < 6; i++) {
         const square = document.createElement('div');
         square.classList.add('square');
         block.appendChild(square);
         square.style.backgroundColor = color;
-      }
 
-      container.appendChild(block);
+        const bar = document.createElement('div');
+        bar.classList.add('bar');
+        block.appendChild(bar);    
+
+        for (let i = 0; i < 6; i++) {
+          const square = document.createElement('div');
+          square.classList.add('square');
+          block.appendChild(square);
+          square.style.backgroundColor = color;
+        }
+
+      block.classList.add(div_name);
+      section.appendChild(block);
+    }
+    
+    else {
+      divExists.remove();
+    }
+
     }
   </script>
 
