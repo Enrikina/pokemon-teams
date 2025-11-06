@@ -12,20 +12,22 @@
     }
 
     .square {
-      width: 80px;
-      height: 80px;
+      width: 56px;
+      height: 56px;
       border-radius: 0px;
       border-width: 2px;
       border-style: solid;
       border-color: black;
       background-color: lightgray; /* default color */
     }
-
     .bar {
       width: 10px;
-      height: 80px;
+      height: 56px;
       border-radius: 0px;
       background-color: rgb(0, 0, 0); /* default color */
+    }
+    .team_section {
+      display: flex
     }
   </style>
 
@@ -37,13 +39,17 @@
     </header>
 
   <script>
-    function addRow(color, button) {
+    function addRow(color, button, gen_num) {
     // Remove the button that was clicked
     button.remove();
 
-      const container = document.getElementById('teams_section');
+      let prefix = 'gen';
+      let gen_int = gen_num.toString();
+      let suffix = '_teams_section';
 
-      // Create a new row.
+      const container = document.getElementById(prefix + gen_int + suffix);
+
+      // Create a new block.
       const row = document.createElement('div');
       row.classList.add('row');
 
@@ -69,20 +75,23 @@
 
     <main>
             <section id="gen1_button_section" style="margin-bottom: 10px;">
-                <button onclick="addRow('#DA3914', this)">Red</button>
-                <button onclick="addRow('#2E50D8', this)">Blue</button>
-                <button onclick="addRow('#24A724', this)">Green</button>
-                <button onclick="addRow('#FFD733', this)">Yellow</button>
+                <button onclick="addRow('#DA3914', this, 1)">Red</button>
+                <button onclick="addRow('#2E50D8', this, 1)">Blue</button>
+                <button onclick="addRow('#24A724', this, 1)">Green</button>
+                <button onclick="addRow('#FFD733', this, 1)">Yellow</button>
             </section>
             <section id="gen2_button_section" style="margin-bottom: 20px;">
-                <button onclick="addRow('#DAA520', this)">Gold</button>
-                <button onclick="addRow('#C0C0C0', this)">Silver</button>
-                <button onclick="addRow('#4FD9FF', this)">Crystal</button>
+                <button onclick="addRow('#DAA520', this, 2)">Gold</button>
+                <button onclick="addRow('#C0C0C0', this, 2)">Silver</button>
+                <button onclick="addRow('#4FD9FF', this, 2)">Crystal</button>
             </section>
 
-            <section id="teams_section">
-
+            <section class="team_section", id="gen1_teams_section">
             </section>
+
+            <section class="team_section",  id="gen2_teams_section">
+            </section>
+
     </main>
 
     
