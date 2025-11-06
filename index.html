@@ -39,7 +39,7 @@
     </header>
 
   <script>
-    function addRow(color, button, gen_num) {
+    function toggleBlock(color, button, gen_num) {
     // Remove the button that was clicked
     button.remove();
 
@@ -50,40 +50,41 @@
       const container = document.getElementById(prefix + gen_int + suffix);
 
       // Create a new block.
-      const row = document.createElement('div');
-      row.classList.add('row');
+      const block = document.createElement('div');
+      block.style.marginRight = '20px';
+      block.classList.add('row');
 
       const square = document.createElement('div');
       square.classList.add('square');
-      row.appendChild(square);
+      block.appendChild(square);
       square.style.backgroundColor = color;
 
       const bar = document.createElement('div');
       bar.classList.add('bar');
-      row.appendChild(bar);    
+      block.appendChild(bar);    
 
       for (let i = 0; i < 6; i++) {
         const square = document.createElement('div');
         square.classList.add('square');
-        row.appendChild(square);
+        block.appendChild(square);
         square.style.backgroundColor = color;
       }
 
-      container.appendChild(row);
+      container.appendChild(block);
     }
   </script>
 
     <main>
             <section id="gen1_button_section" style="margin-bottom: 10px;">
-                <button onclick="addRow('#DA3914', this, 1)">Red</button>
-                <button onclick="addRow('#2E50D8', this, 1)">Blue</button>
-                <button onclick="addRow('#24A724', this, 1)">Green</button>
-                <button onclick="addRow('#FFD733', this, 1)">Yellow</button>
+                <button onclick="toggleBlock('#DA3914', this, 1)">Red</button>
+                <button onclick="toggleBlock('#2E50D8', this, 1)">Blue</button>
+                <button onclick="toggleBlock('#24A724', this, 1)">Green</button>
+                <button onclick="toggleBlock('#FFD733', this, 1)">Yellow</button>
             </section>
             <section id="gen2_button_section" style="margin-bottom: 20px;">
-                <button onclick="addRow('#DAA520', this, 2)">Gold</button>
-                <button onclick="addRow('#C0C0C0', this, 2)">Silver</button>
-                <button onclick="addRow('#4FD9FF', this, 2)">Crystal</button>
+                <button onclick="toggleBlock('#DAA520', this, 2)">Gold</button>
+                <button onclick="toggleBlock('#C0C0C0', this, 2)">Silver</button>
+                <button onclick="toggleBlock('#4FD9FF', this, 2)">Crystal</button>
             </section>
 
             <section class="team_section", id="gen1_teams_section">
