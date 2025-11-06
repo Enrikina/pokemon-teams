@@ -29,6 +29,9 @@
     .team_section {
       display: flex
     }
+    .hidden {
+      display: none;
+    }
   </style>
 
 </head>
@@ -36,6 +39,7 @@
     <header>
         <h1>Pokemon Teambuilder</h1>
         <p>Hit a button to add a game.</p>
+        <button onclick="toggleSection()" style="margin-bottom: 10px;">Toggle Buttons</button>
     </header>
 
   <script>
@@ -79,54 +83,74 @@
     }
 
     }
+    
+    function toggleSection() {
+      const buttons = document.getElementById('buttons');
+      buttons.classList.toggle('hidden');
+    }
   </script>
 
     <main>
+      <section id="buttons">
             <section id="gen1_button_section" style="margin-bottom: 10px;">
                 <button onclick="toggleBlock('#DA3914', this, '1')">Red</button>
                 <button onclick="toggleBlock('#2E50D8', this, '1')">Blue</button>
                 <button onclick="toggleBlock('#24A724', this, '1')">Green</button>
-                
             </section>
+
             <section id="gen1_1_button_section" style="margin-bottom: 10px;">
               <button onclick="toggleBlock('#FFD733', this, '1_1')">Yellow</button>
               </section>
+
             <section id="gen2_button_section" style="margin-bottom: 10px;">
                 <button onclick="toggleBlock('#DAA520', this, '2')">Gold</button>
                 <button onclick="toggleBlock('#C0C0C0', this, '2')">Silver</button>
-                <button onclick="toggleBlock('#4FD9FF', this, '2')">Crystal</button>
             </section>
+
+            <section id="gen2_1_button_section" style="margin-bottom: 10px;">
+                <button onclick="toggleBlock('#4FD9FF', this, '2_1')">Crystal</button>
+            </section>
+
             <section id="gen3_button_section" style="margin-bottom: 10px;">
                 <button onclick="toggleBlock('#CD2236', this, '3')">Ruby</button>
                 <button onclick="toggleBlock('#3D51A7', this, '3')">Sapphire</button>
             </section>
+
             <section id="gen3_1_button_section" style="margin-bottom: 10px;">
                 <button onclick="toggleBlock('#F15C01', this, '3_1')">Firered</button>
                 <button onclick="toggleBlock('#9FDC00', this, '3_1')">Leafgreen</button>
             </section>
+
             <section id="gen3_2_button_section" style="margin-bottom: 10px;">
                 <button onclick="toggleBlock('#009652', this, '3_2')">Emerald</button>
             </section>
 
-            
-            <section class="team_section", id="gen1_teams_section">
-            </section>
+          </section>
+      
+      <section id="teams">
+          <section class="team_section", id="gen1_teams_section">
+          </section>
 
-            <section class="team_section", id="gen1_1_teams_section">
-            </section>
+          <section class="team_section", id="gen1_1_teams_section">
+          </section>
 
-            <section class="team_section",  id="gen2_teams_section">
-            </section>
+          <section class="team_section",  id="gen2_teams_section">
+          </section>
 
-            <section class="team_section",  id="gen3_teams_section">
-            </section>
+          <section class="team_section",  id="gen2_1_teams_section">
+          </section>
 
-            <section class="team_section",  id="gen3_1_teams_section">
-            </section>
+          <section class="team_section",  id="gen3_teams_section">
+          </section>
 
-            <section class="team_section",  id="gen3_2_teams_section">
-            </section>
+          <section class="team_section",  id="gen3_1_teams_section">
+          </section>
 
+          <section class="team_section",  id="gen3_2_teams_section">
+          </section>
+
+          </section>
+          
     </main>
 
     
