@@ -14,6 +14,7 @@ import random
 
 def get_types(subtext: str) -> Tuple[Type, Optional[Type]]:
     split = subtext.split('/')
+    #print(split)
     type_1 = Type(re.sub(r'[^a-zA-Z0-9]', '',split[0]).lower())
     type_2 = Type(re.sub(r'[^a-zA-Z0-9]', '',split[1]).lower()) if len(split) > 1 else None
     return (type_1, type_2)
@@ -53,6 +54,8 @@ def get_pokemon_data(start_num: int, stop_num: int) -> Dict[int, int]:
         preceding_idx = text.find('is a') + len('is a')
         succeeding_idx = text.find('type Pokémon')
         enveloping_text = text[preceding_idx:succeeding_idx]
+        if enveloping_text[0].islower():
+            enveloping_text = enveloping_text[1:]
         type_1, type_2 = get_types(enveloping_text)
 
         # Build local pokedex.
@@ -75,7 +78,7 @@ def get_pokemon_data(start_num: int, stop_num: int) -> Dict[int, int]:
 
 
 if __name__ == '__main__': 
-    pokemon_dat = get_pokemon_data(1, 6)
+    pokemon_dat = get_pokemon_data(1, 1025)
 
     dump_path = 'assets\pokemon_data\pokemon.yaml'
     with open(dump_path, 'w') as file:
