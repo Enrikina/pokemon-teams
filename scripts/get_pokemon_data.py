@@ -1,14 +1,14 @@
 #from scripts.get_pokemon_data import PokemonData
 from bs4 import BeautifulSoup
-from typing import Dict, Tuple, Optional
+from typing import Dict, Tuple, Optional, Union
 import requests
 import re
 
 import yaml
 from tqdm import  tqdm
 
-from scripts.pokemon_data import PokemonData
-from scripts.type import Type
+from scripts.datatypes.pokemon_data import PokemonData
+from scripts.datatypes.type import Type
 import time
 import random
 
@@ -32,7 +32,7 @@ def build_local_pokedex(subtext: str) -> Dict[str, int]:
 
     return local_dict
 
-def get_pokemon_data(start_num: int, stop_num: int) -> Dict[int, int]:
+def get_pokemon_data(start_num: int, stop_num: int) -> Dict[int, Dict[str, Union[str, Dict[str, int], int]]]:
     # Maps pokemon name to PokemonData construct.
     pokemon_dict: Dict[int, PokemonData] = {}
 
