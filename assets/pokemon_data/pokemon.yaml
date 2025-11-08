@@ -1,0 +1,90 @@
+1:
+  dex_num:
+    FireRed/LeafGreen: 1
+    Gold/Silver/Crystal: 226
+    HeartGold/SoulSilver: 231
+    'Legends: Z-A': 148
+    Let's Go Pikachu/Let's Go Eevee: 1
+    Red/Blue/Yellow: 1
+    The Indigo Disk: 164
+    The Isle of Armor: 68
+    "X/Y \u2014 Central Kalos": 80
+  name: Bulbasaur
+  nat_dex_num: 1
+  type_1: grass
+  type_2: poison
+2:
+  dex_num:
+    FireRed/LeafGreen: 2
+    Gold/Silver/Crystal: 227
+    HeartGold/SoulSilver: 232
+    'Legends: Z-A': 149
+    Let's Go Pikachu/Let's Go Eevee: 2
+    Red/Blue/Yellow: 2
+    The Indigo Disk: 165
+    The Isle of Armor: 69
+    "X/Y \u2014 Central Kalos": 81
+  name: Ivysaur
+  nat_dex_num: 2
+  type_1: grass
+  type_2: poison
+3:
+  dex_num:
+    FireRed/LeafGreen: 3
+    Gold/Silver/Crystal: 228
+    HeartGold/SoulSilver: 233
+    'Legends: Z-A': 150
+    Let's Go Pikachu/Let's Go Eevee: 3
+    Red/Blue/Yellow: 3
+    The Indigo Disk: 166
+    The Isle of Armor: 70
+    "X/Y \u2014 Central Kalos": 82
+  name: Venusaur
+  nat_dex_num: 3
+  type_1: grass
+  type_2: poison
+4:
+  dex_num:
+    FireRed/LeafGreen: 4
+    Gold/Silver/Crystal: 229
+    HeartGold/SoulSilver: 234
+    'Legends: Z-A': 151
+    Let's Go Pikachu/Let's Go Eevee: 4
+    Red/Blue/Yellow: 4
+    Sword/Shield: 378
+    The Indigo Disk: 167
+    "X/Y \u2014 Central Kalos": 83
+  name: Charmander
+  nat_dex_num: 4
+  type_1: fire
+  type_2: null
+5:
+  dex_num:
+    FireRed/LeafGreen: 5
+    Gold/Silver/Crystal: 230
+    HeartGold/SoulSilver: 235
+    'Legends: Z-A': 152
+    Let's Go Pikachu/Let's Go Eevee: 5
+    Red/Blue/Yellow: 5
+    Sword/Shield: 379
+    The Indigo Disk: 168
+    "X/Y \u2014 Central Kalos": 84
+  name: Charmeleon
+  nat_dex_num: 5
+  type_1: fire
+  type_2: null
+6:
+  dex_num:
+    FireRed/LeafGreen: 6
+    Gold/Silver/Crystal: 231
+    HeartGold/SoulSilver: 236
+    'Legends: Z-A': 153
+    Let's Go Pikachu/Let's Go Eevee: 6
+    Red/Blue/Yellow: 6
+    Sword/Shield: 380
+    The Indigo Disk: 169
+    "X/Y \u2014 Central Kalos": 85
+  name: Charizard
+  nat_dex_num: 6
+  type_1: fire
+  type_2: flying
