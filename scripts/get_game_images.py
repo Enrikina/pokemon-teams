@@ -5,7 +5,7 @@ import random
 from tqdm import tqdm
 
 def get_game_images() -> None:
-    with open('assets\pokemon_data\local_dexes\\rby.yaml', 'r') as file:
+    with open('assets\pokemon_data\local_dexes\\frlg.yaml', 'r') as file:
         local_dex = yaml.safe_load(file)  # Returns a dict
 
     site_prefix ='https://img.pokemondb.net/sprites/firered-leafgreen/normal/'
