@@ -64,12 +64,12 @@ async function makeTrainerDropdown(dir, sq) {
     option.textContent = "--";
     dropdown.appendChild(option);
 
-    let trainer_options = ["Boy", "Girl"];
+    let trainer_options = ["boy", "girl"];
 
     for (const key in trainer_options) {
         const option = document.createElement('option');
         option.value = trainer_options[key];
-        option.textContent = trainer_options[key];
+        option.textContent = trainer_options[key].charAt(0).toUpperCase() + trainer_options[key].slice(1);;
         dropdown.appendChild(option);
     }
     
@@ -89,13 +89,13 @@ async function makeTrainerDropdown(dir, sq) {
     img.style.height = '100%';
     img.style.display = 'block';
     img.style.margin = '0px auto 0 auto';
-    img.src = `${dir}/${dropdown.value.toLowerCase()}.png`; // initial image
+    img.src = `${dir}/${dropdown.value}.png`; // initial image
     sq.appendChild(img);
     sq.appendChild(dropdown);
 
     // Update image whenever dropdown selection changes
     dropdown.addEventListener('change', () => {
-        img.src = `${dir}/${dropdown.value.toLowerCase()}.png`;
+        img.src = `${dir}/${dropdown.value}.png`;
     });
 
     return dropdown;
@@ -114,9 +114,11 @@ async function makeDropdown(yaml, dir, sq) {
     dropdown.appendChild(option);
 
     for (const key in actual_yaml) {
+        actual_yaml[key] = actual_yaml[key].toLowerCase();
+
         const option = document.createElement('option');
         option.value = key;
-        option.textContent = actual_yaml[key];
+        option.textContent = actual_yaml[key].charAt(0).toUpperCase() + actual_yaml[key].slice(1);
         dropdown.appendChild(option);
     }
     
@@ -136,13 +138,13 @@ async function makeDropdown(yaml, dir, sq) {
     img.style.height = '100%';
     img.style.display = 'block';
     img.style.margin = '0px auto 0 auto';
-    img.src = `${dir}/${actual_yaml[dropdown.value.toLowerCase()]}.png`; // initial image
+    img.src = `${dir}/${actual_yaml[dropdown.value]}.png`; // initial image
     sq.appendChild(img);
     sq.appendChild(dropdown);
 
     // Update image whenever dropdown selection changes
     dropdown.addEventListener('change', () => {
-        img.src = `${dir}/${actual_yaml[dropdown.value.toLowerCase()]}.png`;
+        img.src = `${dir}/${actual_yaml[dropdown.value]}.png`;
     });
 
     return dropdown;
