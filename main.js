@@ -11,6 +11,8 @@ function toggleBlock(color, button, gen_val) {
 
     [yaml, dir] = getYamlAndDir(button.innerText);
 
+    boy_option_only = boy_only_game(button.innerText);
+
     // Create a new block.
     const block = document.createElement('div');
     block.style.marginRight = '20px';
@@ -18,7 +20,7 @@ function toggleBlock(color, button, gen_val) {
 
     const trainer_square = document.createElement('div');
     trainer_square.classList.add('trainer_square');
-    makeTrainerDropdown(dir + "\\Trainer\\", trainer_square);
+    makeTrainerDropdown(dir + "\\Trainer\\", trainer_square, boy_option_only);
 
     block.appendChild(trainer_square);
     trainer_square.style.backgroundColor = color;
@@ -56,7 +58,7 @@ function toggleBlock(color, button, gen_val) {
 
 }
 
-async function makeTrainerDropdown(dir, sq) {
+async function makeTrainerDropdown(dir, sq, boy_option_only) {
     const dropdown = document.createElement('select');
     
     const option = document.createElement('option');
@@ -64,7 +66,12 @@ async function makeTrainerDropdown(dir, sq) {
     option.textContent = "--";
     dropdown.appendChild(option);
 
-    let trainer_options = ["boy", "girl"];
+    if (boy_option_only) {
+        trainer_options = ["boy"];
+    }
+    else {
+        trainer_options = ["boy", "girl"];
+    }
 
     for (const key in trainer_options) {
         const option = document.createElement('option');
@@ -176,7 +183,13 @@ function getYamlAndDir(game) {
             return [-1, -1];
       }
 }
-   
+
+function boy_only_game(game) {
+    // These games only have a boy character option.
+    const boy_only_games = ['Red', 'Blue', 'Yellow', 'Gold', 'Silver'];
+
+    return boy_only_games.includes(game);
+}
 
 function toggleSection() {
     const buttons = document.getElementById('buttons');
