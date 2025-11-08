@@ -174,11 +174,38 @@ async function loadYaml(path) {
 function getYamlAndDir(game) {
       // Get the yaml and directory associated with this game.
       switch (game) {
+        case 'Red': 
+            return ['assets\\pokemon_data\\local_dexes\\rby.yaml', 'assets\\pokemon_data\\sprites\\rb']
+        case 'Blue': 
+            return ['assets\\pokemon_data\\local_dexes\\rby.yaml', 'assets\\pokemon_data\\sprites\\rb']
+        case 'Yellow': 
+            return ['assets\\pokemon_data\\local_dexes\\rby.yaml', 'assets\\pokemon_data\\sprites\\y']
+        case 'Gold': 
+            return ['assets\\pokemon_data\\local_dexes\\gsc.yaml', 'assets\\pokemon_data\\sprites\\gold']
+        case 'Silver': 
+            return ['assets\\pokemon_data\\local_dexes\\gsc.yaml', 'assets\\pokemon_data\\sprites\\silver']
+        case 'Crystal': 
+            return ['assets\\pokemon_data\\local_dexes\\gsc.yaml', 'assets\\pokemon_data\\sprites\\crystal']
+        case 'Ruby': 
+            return ['assets\\pokemon_data\\local_dexes\\rse.yaml', 'assets\\pokemon_data\\sprites\\rs']
+        case 'Sapphire': 
+            return ['assets\\pokemon_data\\local_dexes\\rse.yaml', 'assets\\pokemon_data\\sprites\\rs']
+        case 'Emerald': 
+            return ['assets\\pokemon_data\\local_dexes\\rse.yaml', 'assets\\pokemon_data\\sprites\\e']
         case 'Firered':
             return ['assets\\pokemon_data\\local_dexes\\frlg.yaml', 'assets\\pokemon_data\\sprites\\frlg']
         case 'Leafgreen':
             return ['assets\\pokemon_data\\local_dexes\\frlg.yaml', 'assets\\pokemon_data\\sprites\\frlg']     
-            
+        case 'Diamond':
+            return ['assets\\pokemon_data\\local_dexes\\dp.yaml', 'assets\\pokemon_data\\sprites\\dp']    
+        case 'Pearl':
+            return ['assets\\pokemon_data\\local_dexes\\dp.yaml', 'assets\\pokemon_data\\sprites\\dp']                
+        case 'Platinum':
+            return ['assets\\pokemon_data\\local_dexes\\plat.yaml', 'assets\\pokemon_data\\sprites\\pt']    
+        case 'HeartGold':
+            return ['assets\\pokemon_data\\local_dexes\\hgss.yaml', 'assets\\pokemon_data\\sprites\\hgss']    
+        case 'SoulSilver':
+            return ['assets\\pokemon_data\\local_dexes\\hgss.yaml', 'assets\\pokemon_data\\sprites\\hgss']    
         default:
             return [-1, -1];
       }
