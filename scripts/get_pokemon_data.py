@@ -2,6 +2,7 @@
 from bs4 import BeautifulSoup
 from typing import Dict, Tuple, Optional
 import requests
+import re
 
 import os
 
@@ -9,7 +10,11 @@ from scripts.pokemon_data import PokemonData
 from scripts.type import Type
 
 def get_types(subtext: str) -> Tuple[Type, Optional[Type]]:
-    ...
+    split = subtext.split('/')
+    type_1 = Type(re.sub(r'[^a-zA-Z0-9]', '',split[0]).lower())
+    type_2 = Type(re.sub(r'[^a-zA-Z0-9]', '',split[1]).lower()) if len(split) > 1 else None
+    return (type_1, type_2)
+
 
 def get_pokemon_data(start_num: int, stop_num: int) -> Dict[str, int]:
     # Maps pokemon name to PokemonData construct.
@@ -27,14 +32,22 @@ def get_pokemon_data(start_num: int, stop_num: int) -> Dict[str, int]:
         print(type(text))
 
 
-        #TODO: Get Pokemon Name
+        # Get Pokemon Name
         # Find the first space. The pokemon's name is everything before that.
         space_idx = text.find(' ')
         pokemon_name = text[:space_idx]
 
-        #TODO: Get Pokemon Type(s)
+        # Get Pokemon Type(s)
+        preceding_idx = text.find('is a') + 4
+        succeeding_idx = text.find('type Pokémon')
+        enveloping_text = text[preceding_idx:succeeding_idx]
+        type_1, type_2 = get_types(enveloping_text)
 
-        #TODO: Build local 
+        print(pokemon_name)
+        print([type_1, type_2])
+
+        #TODO: Build local pokedex.
+
 
         #TODO: Construct PokemonData and add to dict.
 

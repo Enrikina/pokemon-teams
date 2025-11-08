@@ -1,23 +1,24 @@
-from typing import Enum
-from enum import auto
+from enum import Enum
 
 
-class Type(Enum):
-    NORMAL = auto()
-    FIRE = auto()
-    WATER = auto()
-    ELECTRIC = auto()
-    GRASS = auto()
-    ICE = auto()
-    FIGHTING = auto()
-    POISON = auto()
-    GROUND = auto()
-    FLYING = auto()
-    PSYCHIC = auto()
-    BUG = auto()
-    ROCK = auto()
-    GHOST = auto()
-    DRAGON = auto()
-    DARK = auto()
-    STEEL = auto()
-    FAIRY = auto()
+class Type(str, Enum):
+    NORMAL = 'normal'
+    FIRE = 'fire'
+    WATER = 'water'
+    ELECTRIC = 'electric'
+    GRASS = 'grass'
+    ICE = 'ice'
+    FIGHTING = 'fighting'
+    POISON = 'poison'
+    GROUND = 'ground'
+    FLYING = 'flying'
+    PSYCHIC = 'psychic'
+    BUG = 'bug'
+    ROCK = 'rock'
+    GHOST = 'ghost'
+    DRAGON = 'dragon'
+    DARK = 'dark'
+    STEEL = 'steel'
+    FAIRY = 'fairy'
+
+    
