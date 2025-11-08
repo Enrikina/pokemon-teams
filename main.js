@@ -178,6 +178,8 @@ function getYamlAndDir(game) {
             return ['assets\\pokemon_data\\local_dexes\\rby.yaml', 'assets\\pokemon_data\\sprites\\rb']
         case 'Blue': 
             return ['assets\\pokemon_data\\local_dexes\\rby.yaml', 'assets\\pokemon_data\\sprites\\rb']
+        case 'Green': 
+            return ['assets\\pokemon_data\\local_dexes\\rby.yaml', 'assets\\pokemon_data\\sprites\\green']
         case 'Yellow': 
             return ['assets\\pokemon_data\\local_dexes\\rby.yaml', 'assets\\pokemon_data\\sprites\\y']
         case 'Gold': 
@@ -213,7 +215,7 @@ function getYamlAndDir(game) {
 
 function boy_only_game(game) {
     // These games only have a boy character option.
-    const boy_only_games = ['Red', 'Blue', 'Yellow', 'Gold', 'Silver'];
+    const boy_only_games = ['Red', 'Blue', 'Green', 'Yellow', 'Gold', 'Silver'];
 
     return boy_only_games.includes(game);
 }
