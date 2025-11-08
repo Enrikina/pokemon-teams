@@ -12,15 +12,15 @@ def make_local_pokedex(game: str) -> None:
         local_dex_nums = val['dex_num']
         if (local_dex:= local_dex_nums.get(game)) is not None:
             local_pokedex[local_dex] = val['name']
-        elif (local_dex_2:= local_dex_nums.get('Yellow/Red/Blue')) is not None:
+        elif (local_dex_2:= local_dex_nums.get('Crystal/Gold/Silver')) is not None:
             local_pokedex[local_dex_2] = val['name']
 
     
-    dump_path = 'assets\pokemon_data\local_dexes\\rby.yaml' 
+    dump_path = 'assets\pokemon_data\local_dexes\\gsc.yaml' 
     with open(dump_path, 'w') as file:
         yaml.dump(local_pokedex, file, default_flow_style=False)
 
 
 
 if __name__ == '__main__':
-    make_local_pokedex('Red/Blue/Yellow')
+    make_local_pokedex('Gold/Silver/Crystal')
