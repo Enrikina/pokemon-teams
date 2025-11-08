@@ -89,13 +89,13 @@ async function makeTrainerDropdown(dir, sq) {
     img.style.height = '100%';
     img.style.display = 'block';
     img.style.margin = '0px auto 0 auto';
-    img.src = `${dir}/${dropdown.value}.png`; // initial image
+    img.src = `${dir}/${dropdown.value.toLowerCase()}.png`; // initial image
     sq.appendChild(img);
     sq.appendChild(dropdown);
 
     // Update image whenever dropdown selection changes
     dropdown.addEventListener('change', () => {
-        img.src = `${dir}/${dropdown.value}.png`;
+        img.src = `${dir}/${dropdown.value.toLowerCase()}.png`;
     });
 
     return dropdown;
@@ -136,13 +136,13 @@ async function makeDropdown(yaml, dir, sq) {
     img.style.height = '100%';
     img.style.display = 'block';
     img.style.margin = '0px auto 0 auto';
-    img.src = `${dir}/${actual_yaml[dropdown.value]}.png`; // initial image
+    img.src = `${dir}/${actual_yaml[dropdown.value.toLowerCase()]}.png`; // initial image
     sq.appendChild(img);
     sq.appendChild(dropdown);
 
     // Update image whenever dropdown selection changes
     dropdown.addEventListener('change', () => {
-        img.src = `${dir}/${actual_yaml[dropdown.value]}.png`;
+        img.src = `${dir}/${actual_yaml[dropdown.value.toLowerCase()]}.png`;
     });
 
     return dropdown;
