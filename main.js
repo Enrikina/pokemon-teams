@@ -9,47 +9,47 @@ function toggleBlock(color, button, gen_val) {
 
     if (!divExists) {
 
-    [yaml, dir] = getYamlAndDir(button.innerText);
+        [yaml, dir] = getYamlAndDir(button.innerText);
 
-    boy_option_only = boy_only_game(button.innerText);
+        boy_option_only = boy_only_game(button.innerText);
 
-    // Create a new block.
-    const block = document.createElement('div');
-    block.style.marginRight = '20px';
-    block.classList.add('row');
+        // Create a new block.
+        const block = document.createElement('div');
+        block.style.marginRight = '20px';
+        block.classList.add('row');
 
-    const trainer_square = document.createElement('div');
-    trainer_square.classList.add('trainer_square');
-    makeTrainerDropdown(dir + "\\Trainer\\", trainer_square, boy_option_only);
+        const trainer_square = document.createElement('div');
+        trainer_square.classList.add('trainer_square');
+        makeTrainerDropdown(dir + "\\Trainer\\", trainer_square, boy_option_only);
 
-    block.appendChild(trainer_square);
-    trainer_square.style.backgroundColor = color;
+        block.appendChild(trainer_square);
+        trainer_square.style.backgroundColor = color;
 
-    // TODO: Generalize for other games
+        // TODO: Generalize for other games
 
-    const bar = document.createElement('div');
-    bar.classList.add('bar');
-    block.appendChild(bar);    
+        const bar = document.createElement('div');
+        bar.classList.add('bar');
+        block.appendChild(bar);
 
-    for (let i = 0; i < 6; i++) {
-        const square = document.createElement('div');
-        square.classList.add('square');
-        block.appendChild(square);
-        square.style.backgroundColor = color;
-    }
+        for (let i = 0; i < 6; i++) {
+            const square = document.createElement('div');
+            square.classList.add('square');
+            block.appendChild(square);
+            square.style.backgroundColor = color;
+        }
 
-    // --- Add a dropdown to every square ---
-    block.querySelectorAll('.square').forEach(sq => {
-        if (yaml != -1) {
-            dropdown = makeDropdown(yaml, dir, sq);
-            // Add dropdown inside the square
+        // --- Add a dropdown to every square ---
+        block.querySelectorAll('.square').forEach(sq => {
+            if (yaml != -1) {
+                dropdown = makeDropdown(yaml, dir, sq);
+                // Add dropdown inside the square
             }
 
-    });
+        });
 
 
-    block.classList.add(div_name);
-    section.appendChild(block);
+        block.classList.add(div_name);
+        section.appendChild(block);
     }
 
     else {
@@ -60,7 +60,7 @@ function toggleBlock(color, button, gen_val) {
 
 async function makeTrainerDropdown(dir, sq, boy_option_only) {
     const dropdown = document.createElement('select');
-    
+
     const option = document.createElement('option');
     option.value = "undefined";
     option.textContent = "--";
@@ -79,7 +79,7 @@ async function makeTrainerDropdown(dir, sq, boy_option_only) {
         option.textContent = trainer_options[key].charAt(0).toUpperCase() + trainer_options[key].slice(1);;
         dropdown.appendChild(option);
     }
-    
+
     // Style dropdown to fit inside square
     dropdown.style.width = '100%';
     dropdown.style.height = '100%';
@@ -89,6 +89,14 @@ async function makeTrainerDropdown(dir, sq, boy_option_only) {
     dropdown.style.border = 'none';
     dropdown.style.fontSize = '14px';
     dropdown.style.textAlign = 'center';
+
+    // Make dropdown invisible and overlay
+    dropdown.style.position = 'absolute';
+    dropdown.style.top = '0';
+    dropdown.style.left = '0';
+    dropdown.style.opacity = '0';
+    dropdown.style.appearance = 'none';
+    dropdown.style.cursor = 'pointer';
 
     // Create <img> element to display selected PNG
     const img = document.createElement('img');
@@ -114,7 +122,7 @@ async function makeDropdown(yaml, dir, sq) {
     if (!actual_yaml) return;
 
     const dropdown = document.createElement('select');
-    
+
     const option = document.createElement('option');
     option.value = "undefined";
     option.textContent = "--";
@@ -128,7 +136,7 @@ async function makeDropdown(yaml, dir, sq) {
         option.textContent = actual_yaml[key].charAt(0).toUpperCase() + actual_yaml[key].slice(1);
         dropdown.appendChild(option);
     }
-    
+
     // Style dropdown to fit inside square
     dropdown.style.width = '100%';
     dropdown.style.height = '100%';
@@ -138,6 +146,14 @@ async function makeDropdown(yaml, dir, sq) {
     dropdown.style.border = 'none';
     dropdown.style.fontSize = '14px';
     dropdown.style.textAlign = 'center';
+
+    // Make dropdown invisible and overlay
+    dropdown.style.position = 'absolute';
+    dropdown.style.top = '0';
+    dropdown.style.left = '0';
+    dropdown.style.opacity = '0';
+    dropdown.style.appearance = 'none';
+    dropdown.style.cursor = 'pointer';
 
     // Create <img> element to display selected PNG
     const img = document.createElement('img');
@@ -172,45 +188,45 @@ async function loadYaml(path) {
 
 
 function getYamlAndDir(game) {
-      // Get the yaml and directory associated with this game.
-      switch (game) {
-        case 'Red': 
+    // Get the yaml and directory associated with this game.
+    switch (game) {
+        case 'Red':
             return ['assets\\pokemon_data\\local_dexes\\rby.yaml', 'assets\\pokemon_data\\sprites\\rb']
-        case 'Blue': 
+        case 'Blue':
             return ['assets\\pokemon_data\\local_dexes\\rby.yaml', 'assets\\pokemon_data\\sprites\\rb']
-        case 'Green': 
+        case 'Green':
             return ['assets\\pokemon_data\\local_dexes\\rby.yaml', 'assets\\pokemon_data\\sprites\\green']
-        case 'Yellow': 
+        case 'Yellow':
             return ['assets\\pokemon_data\\local_dexes\\rby.yaml', 'assets\\pokemon_data\\sprites\\y']
-        case 'Gold': 
+        case 'Gold':
             return ['assets\\pokemon_data\\local_dexes\\gsc.yaml', 'assets\\pokemon_data\\sprites\\gold']
-        case 'Silver': 
+        case 'Silver':
             return ['assets\\pokemon_data\\local_dexes\\gsc.yaml', 'assets\\pokemon_data\\sprites\\silver']
-        case 'Crystal': 
+        case 'Crystal':
             return ['assets\\pokemon_data\\local_dexes\\gsc.yaml', 'assets\\pokemon_data\\sprites\\crystal']
-        case 'Ruby': 
+        case 'Ruby':
             return ['assets\\pokemon_data\\local_dexes\\rse.yaml', 'assets\\pokemon_data\\sprites\\rs']
-        case 'Sapphire': 
+        case 'Sapphire':
             return ['assets\\pokemon_data\\local_dexes\\rse.yaml', 'assets\\pokemon_data\\sprites\\rs']
-        case 'Emerald': 
+        case 'Emerald':
             return ['assets\\pokemon_data\\local_dexes\\rse.yaml', 'assets\\pokemon_data\\sprites\\e']
         case 'Firered':
             return ['assets\\pokemon_data\\local_dexes\\frlg.yaml', 'assets\\pokemon_data\\sprites\\frlg']
         case 'Leafgreen':
-            return ['assets\\pokemon_data\\local_dexes\\frlg.yaml', 'assets\\pokemon_data\\sprites\\frlg']     
+            return ['assets\\pokemon_data\\local_dexes\\frlg.yaml', 'assets\\pokemon_data\\sprites\\frlg']
         case 'Diamond':
-            return ['assets\\pokemon_data\\local_dexes\\dp.yaml', 'assets\\pokemon_data\\sprites\\dp']    
+            return ['assets\\pokemon_data\\local_dexes\\dp.yaml', 'assets\\pokemon_data\\sprites\\dp']
         case 'Pearl':
-            return ['assets\\pokemon_data\\local_dexes\\dp.yaml', 'assets\\pokemon_data\\sprites\\dp']                
+            return ['assets\\pokemon_data\\local_dexes\\dp.yaml', 'assets\\pokemon_data\\sprites\\dp']
         case 'Platinum':
-            return ['assets\\pokemon_data\\local_dexes\\plat.yaml', 'assets\\pokemon_data\\sprites\\pt']    
+            return ['assets\\pokemon_data\\local_dexes\\plat.yaml', 'assets\\pokemon_data\\sprites\\pt']
         case 'HeartGold':
-            return ['assets\\pokemon_data\\local_dexes\\hgss.yaml', 'assets\\pokemon_data\\sprites\\hgss']    
+            return ['assets\\pokemon_data\\local_dexes\\hgss.yaml', 'assets\\pokemon_data\\sprites\\hgss']
         case 'SoulSilver':
-            return ['assets\\pokemon_data\\local_dexes\\hgss.yaml', 'assets\\pokemon_data\\sprites\\hgss']    
+            return ['assets\\pokemon_data\\local_dexes\\hgss.yaml', 'assets\\pokemon_data\\sprites\\hgss']
         default:
             return [-1, -1];
-      }
+    }
 }
 
 function boy_only_game(game) {
